@@ -1,0 +1,34 @@
+PROCESS_DIRECTORY: '/home/rcarlson/sting/Pheno/GWI/process'
+CORR_FILE: '/home/rcarlson/sting/Pheno/gwi_illumcorr.tif'
+MODE: 'process'
+#MODE: 'paramsearch_segmentation'
+REQUESTED_FILES: []
+REQUESTED_TAGS: [
+'dapi.csv',
+'cd63.csv',
+'sting.csv',
+'p62.csv',
+'gm130.csv',
+'morph.csv',
+'coords.csv'
+    ]
+# discarded after processing to save space
+TEMP_TAGS: ['cytoplasm.tif'] 
+
+### INPUT TO ANALYSIS
+INPUT_DIRECTORY: '/home/rcarlson/sting/Pheno/GWI'
+WELL_TILE_LIST: '/home/rcarlson/gw/ebov/Pheno/well_tile_list_full.csv'
+INCLUDE_WELLS_TILES: 'all' # either 'all' or list of [well,tile] pair lists. If running in either paramsearch modes, sites must be restricted to a subset
+MAGNIFICATION: '20X'
+PHENOTYPE_CYCLE: ['pheno0.tif','pheno1.tif']
+
+### ANALYSIS PARAMETERS
+SEGMENT_METHOD: 'cell_2019_select_channels'
+NUCLEUS_AREA: [110,1600]
+THRESHOLD_DAPI: 6100
+THRESHOLD_CELL: 2800
+#NUCLEUS_AREA: [[110, 1600]] # min and max nucleus area in pixels
+#THRESHOLD_DAPI: [6100]  # threshold for segmenting nuclei
+#THRESHOLD_CELL: [2800]  # threshold for segmenting cells
+
+AUTOSCALE_PHENOTYPE: True

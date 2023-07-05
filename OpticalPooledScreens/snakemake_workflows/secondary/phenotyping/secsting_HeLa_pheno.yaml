@@ -1,0 +1,43 @@
+PROCESS_DIRECTORY: '/home/rcarlson/stingsec/SECA_multiround/process'
+PROCESS_DIRECTORY_RD1: '/home/rcarlson/stingsec/SECA/process'
+CORR_FILE2: '/home/rcarlson/stingsec/SECA_multiround/seca_illumcorr_rd2.tif'
+CORR_FILE3: '/home/rcarlson/stingsec/SECA_multiround/seca_illumcorr_rd3.tif'
+CORR_FILE4: '/home/rcarlson/stingsec/SECA_multiround/seca_illumcorr_rd4.tif'
+CORR_FILE5: '/home/rcarlson/stingsec/SECA_multiround/seca_illumcorr_rd5.tif'
+MODE: 'process'
+#MODE: 'paramsearch_segmentation'
+REQUESTED_FILES: []
+REQUESTED_TAGS: [
+'dapi.csv',
+'p62.csv',
+'sting.csv',
+'morph.csv',
+'p65.csv',
+'gm130.csv',
+'actin.csv',
+'hgs.csv',
+'gh2ax.csv',
+'canx.csv',
+'eea1.csv',
+'atp6v1d.csv'
+    ]
+# discarded after processing to save space
+TEMP_TAGS: ['cytoplasm.tif'] 
+
+### INPUT TO ANALYSIS
+INPUT_DIRECTORY: '/home/rcarlson/stingsec/SECA_multiround'
+WELL_TILE_LIST: '/home/rcarlson/stingsec/well_tile_list_40x_all.csv'
+INCLUDE_WELLS_TILES: 'all' # either 'all' or list of [well,tile] pair lists. If running in either paramsearch modes, sites must be restricted to a subset
+MAGNIFICATION: '40X'
+PHENOTYPE_CYCLE: ['SECA_Rd2','SECA_Rd3','SECA_Rd4','SECA_Rd5']
+
+### ANALYSIS PARAMETERS
+SEGMENT_METHOD: 'cell_2019_select_channels'
+NUCLEUS_AREA: [200, 18000]
+THRESHOLD_DAPI: 1400
+THRESHOLD_CELL: 5750
+#NUCLEUS_AREA: [[200, 18000]] # min and max nucleus area in pixels
+#THRESHOLD_DAPI: [1400, 1600]  # threshold for segmenting nuclei
+#THRESHOLD_CELL: [5750]  # threshold for segmenting cells
+
+AUTOSCALE_PHENOTYPE: True

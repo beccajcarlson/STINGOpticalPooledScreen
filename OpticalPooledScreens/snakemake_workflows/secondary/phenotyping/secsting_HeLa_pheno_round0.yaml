@@ -1,0 +1,29 @@
+PROCESS_DIRECTORY: '/home/rcarlson/stingsec/SECA/process'
+CORR_FILE: '/home/rcarlson/stingsec/seca_illumcorr.tif'
+MODE: 'process'
+#MODE: 'paramsearch_segmentation'
+REQUESTED_FILES: []
+REQUESTED_TAGS: [
+'phenotype_corr.tif'
+    ]
+# discarded after processing to save space
+TEMP_TAGS: [] 
+
+### INPUT TO ANALYSIS
+INPUT_DIRECTORY: '/home/rcarlson/stingsec/SECA'
+WELL_TILE_LIST: '/home/rcarlson/stingsec/well_tile_list_40x_all.csv'
+INCLUDE_WELLS_TILES: 'all' # either 'all' or list of [well,tile] pair lists. If running in either paramsearch modes, sites must be restricted to a subset
+MAGNIFICATION: '40X'
+PHENOTYPE_CYCLE: ['tif']
+
+### ANALYSIS PARAMETERS
+SEGMENT_METHOD: 'cell_2019_select_channels'
+NUCLEUS_AREA: [200, 18000]
+THRESHOLD_DAPI: 1400
+THRESHOLD_CELL: 5750
+#NUCLEUS_AREA: [[200, 18000]] # min and max nucleus area in pixels
+#THRESHOLD_DAPI: [1400, 1600]  # threshold for segmenting nuclei
+#THRESHOLD_CELL: [5750]  # threshold for segmenting cells
+#THRESHOLD_READS: 50  # threshold for detecting reads
+
+AUTOSCALE_PHENOTYPE: True
