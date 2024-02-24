@@ -7,7 +7,6 @@ import warnings
 import mahotas
 from warnings import catch_warnings,simplefilter
 from scipy.stats import median_abs_deviation, rankdata 
-#from astropy.stats import median_absolute_deviation
 import cv2
 from decorator import decorator
 from mahotas.thresholding import otsu
